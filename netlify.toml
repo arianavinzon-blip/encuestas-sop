@@ -1,0 +1,8 @@
+[build]
+  # Carpeta donde viven las Netlify Functions de este sitio.
+  functions = "netlify/functions"
+
+[functions]
+  # Aseguramos que las dependencias de npm (ej. nodemailer) se empaqueten
+  # correctamente junto a la función.
+  node_bundler = "esbuild"

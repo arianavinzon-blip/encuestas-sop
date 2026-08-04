@@ -1,0 +1,9 @@
+{
+  "name": "encuestas-sop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Formularios estáticos de encuestas S&OP + Netlify Function para guardado y notificación de respuestas",
+  "dependencies": {
+    "nodemailer": "^9.0.4"
+  }
+}

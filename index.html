@@ -727,6 +727,7 @@
       const questions = [];
 
       fields.forEach(field => {
+        if (field.querySelector('.likert')) return; // la matriz likert se procesa aparte, más abajo
         const q = field.getAttribute('data-q') || '';
         let answer = '';
         const sel = field.querySelector('select');

@@ -285,6 +285,7 @@
   <div class="tabs">
     <button class="tab-btn active" id="tab-btn-tdc" data-target="tab-tdc">Torre de Control</button>
     <button class="tab-btn" id="tab-btn-sop" data-target="tab-sop">S&OP</button>
+    <button class="tab-btn" id="tab-btn-impacto" data-target="tab-impacto">Impacto</button>
   </div>
 
   <div class="tabpanel" id="tab-tdc">
@@ -602,8 +603,34 @@
 
   </div><!-- /tab-sop -->
 
+  <div class="tabpanel" id="tab-impacto" style="display:none;">
+
   <section class="panel" id="p14">
-    <div class="panel-head"><span class="panel-code mono">MÓDULO 14</span><h2>Cierre</h2></div>
+    <div class="panel-head"><span class="panel-code mono">MÓDULO 14</span><h2>Impacto en los KPIs de Supply Chain</h2></div>
+
+    <div class="intro-highlight"><p>
+      Más allá de si los procesos de Torre de Control y S&OP están implementados, nos interesa saber si generaron un impacto real en la operación. Evaluá cada indicador según lo que percibís desde tu compañía.
+    </p></div>
+
+    <div class="field" data-q="Impacto en los KPIs">
+      <label class="q">¿Estos procesos generaron impacto en los siguientes indicadores?</label>
+      <span class="hint">Basado en el cuadro de mando de 4 KPI</span>
+      <div class="likert" id="likert-impacto">
+        <div class="likert-row head"><div></div><div>Sin impacto</div><div>Impacto parcial</div><div>Impacto significativo</div></div>
+      </div>
+      <div class="note">DIO = Days Inventory Outstanding (días de inventario)</div>
+    </div>
+
+    <div class="field" data-q="Oportunidades de mejora para potenciar este impacto">
+      <label class="q">Oportunidades de mejora para potenciar este impacto</label>
+      <textarea name="impacto_oportunidades" placeholder="Escribí tu respuesta…"></textarea>
+    </div>
+  </section>
+
+  </div><!-- /tab-impacto -->
+
+  <section class="panel" id="p15">
+    <div class="panel-head"><span class="panel-code mono">MÓDULO 15</span><h2>Cierre</h2></div>
     <div class="field" data-q="Sugerencias o comentarios adicionales">
       <label class="q">Sugerencias o comentarios adicionales</label>
       <textarea name="comentarios" placeholder="Escribí tu respuesta…"></textarea>
@@ -643,7 +670,8 @@
   });
 
   // build the likert matrices
-  function buildLikert(containerId, groupPrefix, rows){
+  function buildLikert(containerId, groupPrefix, rows, levels){
+    levels = levels || ['No se realiza','Parcial','Regular'];
     const el = document.getElementById(containerId);
     rows.forEach((label, i) => {
       const row = document.createElement('div');
@@ -651,15 +679,14 @@
       const name = groupPrefix + '_' + i;
       row.innerHTML = `
         <div>${label}</div>
-        <div class="lk"><label><input type="radio" name="${name}" data-label="${label}" value="No se realiza"><span class="lk-dot"></span></label></div>
-        <div class="lk"><label><input type="radio" name="${name}" data-label="${label}" value="Parcial"><span class="lk-dot"></span></label></div>
-        <div class="lk"><label><input type="radio" name="${name}" data-label="${label}" value="Regular"><span class="lk-dot"></span></label></div>
+        ${levels.map(lvl => `<div class="lk"><label><input type="radio" name="${name}" data-label="${label}" value="${lvl}"><span class="lk-dot"></span></label></div>`).join('')}
       `;
       el.appendChild(row);
     });
   }
   buildLikert('likert-tdc', 'lk_tdc', ['Demanda','Suministro','Excepciones','Desempeño']);
   buildLikert('likert-sop', 'lk_sop', ['Revisión de Demanda','Revisión de Suministro (Si corresponde)','Consenso','Ejecutiva S&OP']);
+  buildLikert('likert-impacto', 'kpi', ['Accuracy','Vencidos','Faltantes','DIO'], ['Sin impacto','Impacto parcial','Impacto significativo']);
 
   // progress rail
   const panels = Array.from(document.querySelectorAll('.panel'));

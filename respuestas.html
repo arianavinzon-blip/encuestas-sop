@@ -111,6 +111,20 @@
   .btn-refresh:hover{background:var(--teal-soft);}
   .btn-refresh:disabled{opacity:.5; cursor:default;}
 
+  .btn-export{
+    font-family:var(--font-body); font-weight:600; font-size:12.5px; color:var(--teal);
+    background:none; border:1px solid color-mix(in srgb, var(--teal) 40%, var(--line)); border-radius:99px;
+    padding:6px 14px; cursor:pointer; display:inline-flex; align-items:center; gap:6px; margin-bottom:2px;
+  }
+  .btn-export:hover{background:var(--teal-soft);}
+
+  .pie-block{display:flex; align-items:center; gap:22px; flex-wrap:wrap;}
+  .pie{width:116px; height:116px; border-radius:50%; flex:none;}
+  .pie-legend{display:flex; flex-direction:column; gap:9px; font-size:12.5px; flex:1; min-width:140px;}
+  .pie-row{display:flex; align-items:center; gap:8px; color:var(--text);}
+  .pie-row .sw{width:9px; height:9px; border-radius:2px; flex:none;}
+  .pie-val{margin-left:auto; font-family:var(--font-mono); color:var(--muted); font-variant-numeric:tabular-nums;}
+
   /* tabs */
   .tabs{display:flex; gap:8px; margin:22px 0 26px; border-bottom:1px solid var(--line-soft);}
   .tab{
@@ -315,6 +329,13 @@ function findAnswer(sections, questionText){
   }
   return '';
 }
+function findAnswerAny(sections, questionTexts){
+  for (const qt of questionTexts){
+    const a = findAnswer(sections, qt);
+    if (a) return a;
+  }
+  return '';
+}
 
 async function fetchEncuesta(carpeta){
   const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/respuestas/${carpeta}?ref=${BRANCH}`;
@@ -346,7 +367,7 @@ function normalizeTdc(raw){
     sop_frecuencia: findAnswer(s, "¿Con qué frecuencia se realiza el ciclo de S&OP?"),
     sop: {
       "Revisión de Demanda": findAnswer(s, "Nivel de implementación · Revisión de Demanda"),
-      "Revisión de Suministro": findAnswer(s, "Nivel de implementación · Revisión de Suministro"),
+      "Revisión de Suministro (Si corresponde)": findAnswerAny(s, ["Nivel de implementación · Revisión de Suministro (Si corresponde)", "Nivel de implementación · Revisión de Suministro"]),
       "Consenso": findAnswer(s, "Nivel de implementación · Consenso"),
       "Ejecutiva S&OP": findAnswer(s, "Nivel de implementación · Ejecutiva S&OP"),
     },
@@ -366,6 +387,7 @@ function normalizeRs(raw){
     se_realiza: findAnswer(s, "¿La Reunión de Revisión de Suministro se está realizando actualmente en tu planta?"),
     lidera: findAnswer(s, "¿Quién lidera la reunión?"),
     niveles: {
+      "Información de Demanda": findAnswer(s, "Nivel de implementación · Información de Demanda"),
       "Capacidad instalada": findAnswer(s, "Nivel de implementación · Capacidad instalada"),
       "Plan maestro de producción": findAnswer(s, "Nivel de implementación · Plan maestro de producción"),
       "Disponibilidad de materiales": findAnswer(s, "Nivel de implementación · Disponibilidad de materiales"),
@@ -434,6 +456,28 @@ function statusBars(counts, total, order){
   return `<div class="barlist">${rows || '<p class="empty-note">Sin datos todavía.</p>'}</div>`;
 }
 
+function pieChart(counts, total, order){
+  let acc = 0;
+  const stops = [];
+  order.filter(k=>counts.has(k)).forEach(k=>{
+    const v = counts.get(k)||0;
+    const p = total ? (v/total*100) : 0;
+    const color = STATUS[k] || "var(--teal)";
+    stops.push(`${color} ${acc}% ${acc+p}%`);
+    acc += p;
+  });
+  const gradient = stops.length ? stops.join(", ") : "var(--panel-2) 0% 100%";
+  const legendRows = order.filter(k=>counts.has(k)).map(k=>{
+    const v = counts.get(k)||0, p = pct(v, total);
+    const color = STATUS[k] || "var(--teal)";
+    return `<div class="pie-row"><span class="sw" style="background:${color}"></span>${esc(k)}<span class="pie-val">${v} · ${p}%</span></div>`;
+  }).join("");
+  return `<div class="pie-block">
+    <div class="pie" style="background:conic-gradient(${gradient})"></div>
+    <div class="pie-legend">${legendRows || '<p class="empty-note">Sin datos todavía.</p>'}</div>
+  </div>`;
+}
+
 function magnitudeBars(counts, total, limit){
   const entries = [...counts.entries()].sort((a,b)=>b[1]-a[1]).slice(0, limit||99);
   const max = entries.length ? entries[0][1] : 1;
@@ -481,6 +525,28 @@ function feed(entries, tag){
     </div>`).join("")}</div>`;
 }
 
+function toCSVRow(vals){
+  return vals.map(v => `"${(v==null?'':String(v)).replace(/"/g,'""')}"`).join(",");
+}
+function exportCSV(list, filename){
+  const rows = [toCSVRow(["Nombre","Compañía/Planta","Fecha","Módulo","Pregunta","Respuesta"])];
+  list.forEach(r=>{
+    const ident = r.compania || r.planta || '';
+    (r._raw.sections||[]).forEach(s=>{
+      (s.questions||[]).forEach(q=>{
+        rows.push(toCSVRow([r.nombre, ident, r.submittedAt, `${s.code} · ${s.title}`, q.question, q.answer||'']));
+      });
+    });
+  });
+  const csv = "\uFEFF" + rows.join("\r\n");
+  const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
 /* ---------- render: Torres de Control y S&OP ---------- */
 function renderTdc(){
   const total = TDC.length;
@@ -498,6 +564,9 @@ function renderTdc(){
   const sopFreq = countBy(TDC, r=>r.sop_frecuencia);
 
   document.getElementById('panel-tdc').innerHTML = `
+    <div style="display:flex; justify-content:flex-end;">
+      <button class="btn-export" id="btn-export-tdc">⬇ Exportar a Excel</button>
+    </div>
     <div class="stats">
       <div class="stat"><div class="label">Respuestas</div><div class="value">${total}</div><div class="sub">compañías participantes</div></div>
       <div class="stat"><div class="label">Compañías distintas</div><div class="value">${companias.size}</div><div class="sub">de la lista corporativa</div></div>
@@ -540,7 +609,7 @@ function renderTdc(){
         <div><h3>Nivel de implementación — S&amp;OP</h3><div class="hint">Por instancia, entre las 4 reuniones del modelo</div></div>
         ${ordLegend(ORD3)}
       </div>
-      ${ordinalMatrixFrom(dim => TDC.map(r=>r.sop[dim]), ["Revisión de Demanda","Revisión de Suministro","Consenso","Ejecutiva S&OP"], total, ORD3)}
+      ${ordinalMatrixFrom(dim => TDC.map(r=>r.sop[dim]), ["Revisión de Demanda","Revisión de Suministro (Si corresponde)","Consenso","Ejecutiva S&OP"], total, ORD3)}
     </div>
 
     <div>
@@ -563,6 +632,8 @@ function renderTdc(){
       </div>
     </div>
   `;
+
+  document.getElementById('btn-export-tdc').addEventListener('click', () => exportCSV(TDC, 'torres-control-sop.csv'));
 
   const tbody = document.getElementById('tbody-tdc');
   TDC.forEach((r,i)=>{
@@ -609,6 +680,9 @@ function renderRs(){
   const areas = countBy(RS, r=>r.area);
 
   document.getElementById('panel-rs').innerHTML = `
+    <div style="display:flex; justify-content:flex-end;">
+      <button class="btn-export" id="btn-export-rs">⬇ Exportar a Excel</button>
+    </div>
     <div class="stats">
       <div class="stat"><div class="label">Respuestas</div><div class="value">${total}</div><div class="sub">plantas participantes</div></div>
       <div class="stat"><div class="label">Plantas distintas</div><div class="value">${plantas.size}</div><div class="sub">de la lista corporativa</div></div>
@@ -619,7 +693,7 @@ function renderRs(){
     <div class="grid2">
       <div class="card">
         <div class="card-head"><div><h3>¿Se realiza la reunión en la planta?</h3><div class="hint">Estado declarado por planta</div></div></div>
-        ${statusBars(estado, total, ["Sí","Parcialmente","No"])}
+        ${pieChart(estado, total, ["Sí","Parcialmente","No"])}
       </div>
       <div class="card">
         <div class="card-head"><div><h3>¿Quién lidera la reunión?</h3><div class="hint">Entre las plantas que la realizan</div></div></div>
@@ -632,7 +706,7 @@ function renderRs(){
         <div><h3>Nivel de implementación por tema</h3><div class="hint">Temas tratados en la Revisión de Suministro</div></div>
         ${ordLegend(ORD3_RS)}
       </div>
-      ${ordinalMatrixFrom(dim => RS.map(r=>r.niveles[dim]), ["Capacidad instalada","Plan maestro de producción","Disponibilidad de materiales","Restricciones de líneas"], total, ORD3_RS)}
+      ${ordinalMatrixFrom(dim => RS.map(r=>r.niveles[dim]), ["Información de Demanda","Capacidad instalada","Plan maestro de producción","Disponibilidad de materiales","Restricciones de líneas"], total, ORD3_RS)}
     </div>
 
     <div class="grid2">
@@ -661,6 +735,8 @@ function renderRs(){
       </div>
     </div>
   `;
+
+  document.getElementById('btn-export-rs').addEventListener('click', () => exportCSV(RS, 'revision-suministro-sop.csv'));
 
   const tbody = document.getElementById('tbody-rs');
   RS.forEach((r,i)=>{

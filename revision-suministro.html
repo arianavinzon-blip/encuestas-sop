@@ -251,7 +251,7 @@
         <option>Ejecutivo de cuenta Supply</option>
         <option>Líder global de S&OP</option>
         <option>Planificador de planta</option>
-        <option>Representante de manufactura</option>
+        <option>Representante de manufactura corporativo</option>
         <option>Compras Local</option>
         <option>Compras Corporativo</option>
         <option>Otro</option>
@@ -300,7 +300,8 @@
         <label class="chip"><input type="checkbox" name="rs_temas" value="Capacidad instalada disponible"><span class="chip-dot"></span><span class="chip-label">Capacidad instalada disponible</span></label>
         <label class="chip"><input type="checkbox" name="rs_temas" value="Plan maestro de producción"><span class="chip-dot"></span><span class="chip-label">Plan maestro de producción</span></label>
         <label class="chip"><input type="checkbox" name="rs_temas" value="Disponibilidad de materiales e insumos"><span class="chip-dot"></span><span class="chip-label">Disponibilidad de materiales e insumos</span></label>
-        <label class="chip"><input type="checkbox" name="rs_temas" value="Restricciones o cuellos de botella de líneas"><span class="chip-dot"></span><span class="chip-label">Restricciones o cuellos de botella de líneas</span></label>
+        <label class="chip"><input type="checkbox" name="rs_temas" value="Restricciones de líneas — corto plazo"><span class="chip-dot"></span><span class="chip-label">Restricciones de líneas — corto plazo</span></label>
+        <label class="chip"><input type="checkbox" name="rs_temas" value="Restricciones de líneas — mediano/largo plazo"><span class="chip-dot"></span><span class="chip-label">Restricciones de líneas — mediano/largo plazo</span></label>
         <label class="chip"><input type="checkbox" name="rs_temas" value="Mantenimiento programado"><span class="chip-dot"></span><span class="chip-label">Mantenimiento programado</span></label>
         <label class="chip"><input type="checkbox" name="rs_temas" value="Cumplimiento del plan de producción anterior"><span class="chip-dot"></span><span class="chip-label">Cumplimiento del plan de producción anterior</span></label>
         <label class="chip"><input type="checkbox" name="rs_temas" value="Otros"><span class="chip-dot"></span><span class="chip-label">Otros</span></label>
@@ -424,7 +425,7 @@
       el.appendChild(row);
     });
   }
-  buildLikert('likert-rs', 'lk_rs', ['Capacidad instalada','Plan maestro de producción','Disponibilidad de materiales','Restricciones de líneas']);
+  buildLikert('likert-rs', 'lk_rs', ['Información de Demanda','Capacidad instalada','Plan maestro de producción','Disponibilidad de materiales','Restricciones de líneas']);
 
   const panels = Array.from(document.querySelectorAll('.panel'));
   const segsEl = document.getElementById('segs');

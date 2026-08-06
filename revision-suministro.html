@@ -223,21 +223,30 @@
   <section class="panel" id="p2">
     <div class="panel-head"><span class="panel-code mono">MÓDULO 02</span><h2>Datos generales</h2></div>
 
-    <div class="field" data-q="Planta">
-      <label class="q">Planta <span class="req">*</span></label>
+    <div class="field" data-q="Compañía/Planta">
+      <label class="q">Compañía/Planta <span class="req">*</span></label>
       <select name="planta" required>
         <option value="">Seleccionar…</option>
-        <option>Colombia Megalabs</option>
+        <option>Argentina Poen</option>
+        <option>Bolivia Megalabs</option>
+        <option>Brasil Megalabs</option>
+        <option>Centro America Megalabs</option>
         <option>Chile Garden House</option>
+        <option>Chile Megalabs</option>
+        <option>Colombia Megalabs</option>
+        <option>Dominicana Megalabs</option>
+        <option>Dominicana Rowe</option>
+        <option>Ecuador Megalabs</option>
+        <option>Mexico Megalabs</option>
+        <option>Paraguay Megalabs</option>
+        <option>Peru Megalabs</option>
         <option>Uruguay Parque de las Ciencias</option>
         <option>Uruguay Megalabs</option>
-        <option>UY-Corporativo</option>
-        <option>Ecuador Acromax</option>
-        <option>Argentina Poen</option>
-        <option>Dominicana Rowe</option>
+        <option>USA Megalabs</option>
+        <option>Venezuela Megalabs</option>
+        <option>Corporativo</option>
       </select>
-      <span class="hint">Lista provisoria — avisale a Ariana si falta tu planta.</span>
-    </div>
+          </div>
 
     <div class="field" data-q="Nombre">
       <label class="q">Nombre <span class="req">*</span></label>
@@ -513,7 +522,7 @@
 
   function toText(data){
     let out = "ENCUESTA — REUNIÓN DE REVISIÓN DE SUMINISTRO (S&OP)\n";
-    out += `Nombre: ${data.nombre || '(sin nombre)'} · Planta: ${data.planta || '(sin planta)'}\n`;
+    out += `Nombre: ${data.nombre || '(sin nombre)'} · Compañía/Planta: ${data.planta || '(sin compañía/planta)'}\n`;
     out += "Completada el " + new Date(data.submittedAt).toLocaleString('es-UY') + "\n";
     out += "=".repeat(46) + "\n\n";
     data.sections.forEach(s => {
@@ -551,7 +560,7 @@
 
   document.getElementById('btn-send').addEventListener('click', async () => {
     if (!validateRequired()){
-      setStatus('Falta completar Planta y/o Nombre.', 'error');
+      setStatus('Falta completar Compañía/Planta y/o Nombre.', 'error');
       document.querySelector('select[name="planta"]').scrollIntoView({behavior:'smooth', block:'center'});
       return;
     }

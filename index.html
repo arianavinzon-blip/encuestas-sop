@@ -241,51 +241,28 @@
   <section class="panel" id="p2">
     <div class="panel-head"><span class="panel-code mono">MÓDULO 02</span><h2>Datos generales</h2></div>
 
-    <div class="field" data-q="Compañía">
-      <label class="q">Compañía <span class="req">*</span></label>
+    <div class="field" data-q="Compañía/Planta">
+      <label class="q">Compañía/Planta <span class="req">*</span></label>
       <select name="compania" required>
         <option value="">Seleccionar…</option>
-        <option>ARG-GEM</option>
-        <option>ARG-MAX</option>
-        <option>ARG-POE</option>
-        <option>ARG-RAY</option>
-        <option>ARG-ZEL</option>
-        <option>BOL-PHI</option>
-        <option>BRA-DAU</option>
-        <option>CEA-MLB</option>
-        <option>CHI-GRH</option>
-        <option>CHI-PHI</option>
-        <option>COL-SCA</option>
-        <option>CRC-LET</option>
-        <option>DOM-LET</option>
-        <option>DOM-ROW</option>
-        <option>ECU-ACX</option>
-        <option>ECU-MLB</option>
-        <option>ESP-DSL</option>
-        <option>GUA-LET</option>
-        <option>HON-LET</option>
-        <option>MEX-DSL</option>
-        <option>MEX-ITA</option>
-        <option>MEX-VIC</option>
-        <option>NIC-LET</option>
-        <option>PAN-LET</option>
-        <option>PAR-ROE</option>
-        <option>PER-ROE</option>
-        <option>PRC-MLB</option>
-        <option>SAL-LET</option>
-        <option>URU-BKH</option>
-        <option>URU-CEL</option>
-        <option>URU-DPT</option>
-        <option>URU-HAY</option>
-        <option>URU-ROE</option>
-        <option>URU-SPF</option>
-        <option>URU-SRV</option>
-        <option>UY-Corporativo</option>
-        <option>USA-DSL</option>
-        <option>USA-GEO</option>
-        <option>USA-GRH</option>
-        <option>USA-MLB</option>
-        <option>VEN-KLI</option>
+        <option>Argentina Poen</option>
+        <option>Bolivia Megalabs</option>
+        <option>Brasil Megalabs</option>
+        <option>Centro America Megalabs</option>
+        <option>Chile Garden House</option>
+        <option>Chile Megalabs</option>
+        <option>Colombia Megalabs</option>
+        <option>Dominicana Megalabs</option>
+        <option>Dominicana Rowe</option>
+        <option>Ecuador Megalabs</option>
+        <option>Mexico Megalabs</option>
+        <option>Paraguay Megalabs</option>
+        <option>Peru Megalabs</option>
+        <option>Uruguay Parque de las Ciencias</option>
+        <option>Uruguay Megalabs</option>
+        <option>USA Megalabs</option>
+        <option>Venezuela Megalabs</option>
+        <option>Corporativo</option>
       </select>
     </div>
 
@@ -772,7 +749,7 @@
 
   function toText(data){
     let out = "ENCUESTA — TORRES DE CONTROL Y S&OP\n";
-    out += `Nombre: ${data.nombre || '(sin nombre)'} · Compañía: ${data.compania || '(sin compañía)'}\n`;
+    out += `Nombre: ${data.nombre || '(sin nombre)'} · Compañía/Planta: ${data.compania || '(sin compañía/planta)'}\n`;
     out += "Completada el " + new Date(data.submittedAt).toLocaleString('es-UY') + "\n";
     out += "=".repeat(46) + "\n\n";
     data.sections.forEach(s => {
@@ -810,7 +787,7 @@
 
   document.getElementById('btn-send').addEventListener('click', async () => {
     if (!validateRequired()){
-      setStatus('Falta completar Compañía y/o Nombre.', 'error');
+      setStatus('Falta completar Compañía/Planta y/o Nombre.', 'error');
       document.querySelector('select[name="compania"]').scrollIntoView({behavior:'smooth', block:'center'});
       return;
     }

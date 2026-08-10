@@ -1,0 +1,276 @@
+{
+  "encuesta": "torres-control-sop",
+  "nombre": "Susan Fajardo",
+  "compania": "Dominicana Rowe",
+  "submittedAt": "2026-08-10T18:33:50.662Z",
+  "sections": [
+    {
+      "code": "MÓDULO 02",
+      "title": "Datos generales",
+      "questions": [
+        {
+          "question": "Compañía/Planta",
+          "answer": "Dominicana Rowe"
+        },
+        {
+          "question": "Nombre",
+          "answer": "Susan Fajardo"
+        },
+        {
+          "question": "Participa actualmente en",
+          "answer": "Ambos"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 03",
+      "title": "Funcionamiento general de la Torre de Control",
+      "questions": [
+        {
+          "question": "¿La Torre de Control se está realizando actualmente en tu compañía?",
+          "answer": "Sí"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 04",
+      "title": "Implementación de las 4 reuniones de Torre de Control",
+      "questions": [
+        {
+          "question": "Instancias que se realizan actualmente (TdC)",
+          "answer": "Demanda, Suministro, Desempeño"
+        },
+        {
+          "question": "¿Las cuatro instancias están integradas como un proceso estructurado?",
+          "answer": "Sí"
+        },
+        {
+          "question": "Nivel de implementación · Demanda",
+          "answer": "Regular"
+        },
+        {
+          "question": "Nivel de implementación · Suministro",
+          "answer": "Regular"
+        },
+        {
+          "question": "Nivel de implementación · Excepciones",
+          "answer": "Parcial"
+        },
+        {
+          "question": "Nivel de implementación · Desempeño",
+          "answer": "Regular"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 05",
+      "title": "Frecuencia y dinámica de Torre de Control",
+      "questions": [
+        {
+          "question": "¿Con qué frecuencia se realiza la Torre de Control?",
+          "answer": "Quincenal"
+        },
+        {
+          "question": "¿La frecuencia actual es adecuada? (TdC)",
+          "answer": "Sí"
+        },
+        {
+          "question": "¿Alguna instancia se omite o se combina con otra? (TdC)",
+          "answer": "Sí"
+        },
+        {
+          "question": "Si respondiste Sí: ¿cuál/es? (TdC)",
+          "answer": "En la de Torre también visualizamos situaciones de excepciones y temas varios que impactan en lo inmediato."
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 06",
+      "title": "Seguimiento de acciones y uso de la herramienta",
+      "questions": [
+        {
+          "question": "¿Se registran las acciones en la herramienta de Torre de Control?",
+          "answer": ""
+        },
+        {
+          "question": "¿Utilizás la plataforma/App corporativa para el seguimiento? (App Megalabs)",
+          "answer": ""
+        },
+        {
+          "question": "¿Qué dificultades encontrás en el uso de la herramienta?",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 07",
+      "title": "Cambios y evolución de Torre de Control",
+      "questions": [
+        {
+          "question": "¿Qué cambios han implementado recientemente en la Torre de Control?",
+          "answer": ""
+        },
+        {
+          "question": "¿Estos cambios han mejorado el funcionamiento?",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 08",
+      "title": "Valor y oportunidades de Torre de Control",
+      "questions": [
+        {
+          "question": "¿Qué valor aporta actualmente la Torre de Control?",
+          "answer": ""
+        },
+        {
+          "question": "¿Dónde ves mayores oportunidades de mejora? (TdC)",
+          "answer": ""
+        },
+        {
+          "question": "¿Qué mejoras implementarías para fortalecer la Torre de Control?",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 09",
+      "title": "Funcionamiento general del proceso de S&OP",
+      "questions": [
+        {
+          "question": "¿El proceso de S&OP se realiza actualmente en tu compañía?",
+          "answer": ""
+        },
+        {
+          "question": "¿El proceso de S&OP cuenta con un calendario definido y conocido por los participantes?",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 10",
+      "title": "Implementación de las instancias de S&OP",
+      "questions": [
+        {
+          "question": "Instancias que se realizan actualmente (S&OP)",
+          "answer": ""
+        },
+        {
+          "question": "¿Las distintas instancias están integradas como un proceso estructurado?",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Revisión de Demanda",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Revisión de Suministro (Si corresponde)",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Consenso",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Ejecutiva S&OP",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 11",
+      "title": "Frecuencia y dinámica del proceso de S&OP",
+      "questions": [
+        {
+          "question": "¿Con qué frecuencia se realiza el ciclo de S&OP?",
+          "answer": ""
+        },
+        {
+          "question": "¿La frecuencia actual es adecuada? (S&OP)",
+          "answer": ""
+        },
+        {
+          "question": "¿Alguna instancia del proceso se omite o se combina con otra? (S&OP)",
+          "answer": ""
+        },
+        {
+          "question": "Si respondiste Sí: ¿cuál/es? (S&OP)",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 12",
+      "title": "Seguimiento y toma de decisiones en S&OP",
+      "questions": [
+        {
+          "question": "¿Las acciones definidas durante el proceso de S&OP quedan registradas y tienen seguimiento?",
+          "answer": ""
+        },
+        {
+          "question": "¿Los acuerdos definidos en S&OP se traducen en acciones concretas dentro de la organización?",
+          "answer": ""
+        },
+        {
+          "question": "¿Considerás que las decisiones tomadas durante el proceso de S&OP son utilizadas posteriormente en la gestión operativa y en la Torre de Control?",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 13",
+      "title": "Valor y oportunidades del proceso de S&OP",
+      "questions": [
+        {
+          "question": "¿Qué valor aporta actualmente el proceso de S&OP?",
+          "answer": ""
+        },
+        {
+          "question": "¿Dónde ves mayores oportunidades de mejora? (S&OP)",
+          "answer": ""
+        },
+        {
+          "question": "¿Qué mejoras implementarías para fortalecer el proceso de S&OP?",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 14",
+      "title": "Impacto en los KPIs de Supply Chain",
+      "questions": [
+        {
+          "question": "Oportunidades de mejora para potenciar este impacto",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Accuracy",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Vencidos",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Faltantes",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · DIO",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 15",
+      "title": "Cierre",
+      "questions": [
+        {
+          "question": "Sugerencias o comentarios adicionales",
+          "answer": ""
+        }
+      ]
+    }
+  ]
+}

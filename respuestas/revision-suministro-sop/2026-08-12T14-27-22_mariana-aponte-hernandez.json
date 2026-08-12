@@ -1,0 +1,130 @@
+{
+  "encuesta": "revision-suministro-sop",
+  "nombre": "Mariana Aponte Hérnandez",
+  "planta": "Chile Garden House",
+  "submittedAt": "2026-08-12T14:27:22.468Z",
+  "sections": [
+    {
+      "code": "MÓDULO 02",
+      "title": "Datos generales",
+      "questions": [
+        {
+          "question": "Compañía/Planta",
+          "answer": "Chile Garden House"
+        },
+        {
+          "question": "Nombre",
+          "answer": "Mariana Aponte Hérnandez"
+        },
+        {
+          "question": "Área / Rol",
+          "answer": "Ejecutivo de cuenta Supply"
+        },
+        {
+          "question": "Participa actualmente en la Reunión de Revisión de Suministro",
+          "answer": "Sí, regularmente"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 03",
+      "title": "Funcionamiento general de la reunión",
+      "questions": [
+        {
+          "question": "¿La Reunión de Revisión de Suministro se está realizando actualmente en tu planta?",
+          "answer": ""
+        },
+        {
+          "question": "¿Quién lidera la reunión?",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 04",
+      "title": "Contenidos que se tratan en la reunión",
+      "questions": [
+        {
+          "question": "Temas que se tratan habitualmente",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Información de Demanda",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Capacidad instalada",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Plan maestro de producción",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Disponibilidad de materiales",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Restricciones de líneas",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 05",
+      "title": "Seguimiento de acciones",
+      "questions": [
+        {
+          "question": "¿Las acciones acordadas quedan registradas y tienen seguimiento?",
+          "answer": ""
+        },
+        {
+          "question": "¿Qué dificultades encontrás para dar seguimiento a los compromisos?",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 06",
+      "title": "Integración entre áreas",
+      "questions": [
+        {
+          "question": "¿Los temas que se escalan en esta reunión se resuelven?",
+          "answer": ""
+        },
+        {
+          "question": "Como planta, ¿percibís que las problemáticas internas son resueltas en estas reuniones?",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 07",
+      "title": "Valor y oportunidades de mejora",
+      "questions": [
+        {
+          "question": "¿Qué valor aporta actualmente la Reunión de Revisión de Suministro a tu planta?",
+          "answer": ""
+        },
+        {
+          "question": "¿Dónde ves mayores oportunidades de mejora?",
+          "answer": ""
+        },
+        {
+          "question": "¿Qué mejoras implementarías para fortalecer esta reunión?",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 08",
+      "title": "Cierre",
+      "questions": [
+        {
+          "question": "Sugerencias o comentarios adicionales",
+          "answer": ""
+        }
+      ]
+    }
+  ]
+}

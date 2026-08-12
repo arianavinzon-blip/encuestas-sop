@@ -1,20 +1,20 @@
 {
   "encuesta": "torres-control-sop",
-  "nombre": "Erika Contreras",
-  "compania": "PER-ROE",
-  "submittedAt": "2026-08-05T14:17:30.554Z",
+  "nombre": "Susan Fajardo",
+  "compania": "Dominicana Rowe",
+  "submittedAt": "2026-08-10T18:33:50.662Z",
   "sections": [
     {
       "code": "MÓDULO 02",
       "title": "Datos generales",
       "questions": [
         {
-          "question": "Compañía",
-          "answer": "PER-ROE"
+          "question": "Compañía/Planta",
+          "answer": "Dominicana Rowe"
         },
         {
           "question": "Nombre",
-          "answer": "Erika Contreras"
+          "answer": "Susan Fajardo"
         },
         {
           "question": "Participa actualmente en",
@@ -28,7 +28,7 @@
       "questions": [
         {
           "question": "¿La Torre de Control se está realizando actualmente en tu compañía?",
-          "answer": "Parcialmente"
+          "answer": "Sí"
         }
       ]
     },
@@ -38,27 +38,27 @@
       "questions": [
         {
           "question": "Instancias que se realizan actualmente (TdC)",
-          "answer": "Demanda, Suministro"
+          "answer": "Demanda, Suministro, Desempeño"
         },
         {
           "question": "¿Las cuatro instancias están integradas como un proceso estructurado?",
-          "answer": "Parcialmente"
+          "answer": "Sí"
         },
         {
           "question": "Nivel de implementación · Demanda",
-          "answer": "Parcial"
+          "answer": "Regular"
         },
         {
           "question": "Nivel de implementación · Suministro",
-          "answer": "Parcial"
+          "answer": "Regular"
         },
         {
           "question": "Nivel de implementación · Excepciones",
-          "answer": ""
+          "answer": "Parcial"
         },
         {
           "question": "Nivel de implementación · Desempeño",
-          "answer": ""
+          "answer": "Regular"
         }
       ]
     },
@@ -80,7 +80,7 @@
         },
         {
           "question": "Si respondiste Sí: ¿cuál/es? (TdC)",
-          "answer": "La de excepciones y Desempeño."
+          "answer": "En la de Torre también visualizamos situaciones de excepciones y temas varios que impactan en lo inmediato."
         }
       ]
     },
@@ -90,15 +90,15 @@
       "questions": [
         {
           "question": "¿Se registran las acciones en la herramienta de Torre de Control?",
-          "answer": "Sí"
+          "answer": ""
         },
         {
-          "question": "¿Utilizás la plataforma/App corporativa para el seguimiento?",
-          "answer": "No"
+          "question": "¿Utilizás la plataforma/App corporativa para el seguimiento? (App Megalabs)",
+          "answer": ""
         },
         {
           "question": "¿Qué dificultades encontrás en el uso de la herramienta?",
-          "answer": "se bloqueó el acceso"
+          "answer": ""
         }
       ]
     },
@@ -108,7 +108,7 @@
       "questions": [
         {
           "question": "¿Qué cambios han implementado recientemente en la Torre de Control?",
-          "answer": "Ninguno"
+          "answer": ""
         },
         {
           "question": "¿Estos cambios han mejorado el funcionamiento?",
@@ -122,15 +122,15 @@
       "questions": [
         {
           "question": "¿Qué valor aporta actualmente la Torre de Control?",
-          "answer": "Medio"
+          "answer": ""
         },
         {
           "question": "¿Dónde ves mayores oportunidades de mejora? (TdC)",
-          "answer": "Cumplimiento de la agenda definida, Frecuencia"
+          "answer": ""
         },
         {
           "question": "¿Qué mejoras implementarías para fortalecer la Torre de Control?",
-          "answer": "Optimización de la agenda el tdc de Sum"
+          "answer": ""
         }
       ]
     },
@@ -165,7 +165,7 @@
           "answer": ""
         },
         {
-          "question": "Nivel de implementación · Revisión de Suministro",
+          "question": "Nivel de implementación · Revisión de Suministro (Si corresponde)",
           "answer": ""
         },
         {
@@ -238,6 +238,32 @@
     },
     {
       "code": "MÓDULO 14",
+      "title": "Impacto en los KPIs de Supply Chain",
+      "questions": [
+        {
+          "question": "Oportunidades de mejora para potenciar este impacto",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Accuracy",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Vencidos",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Faltantes",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · DIO",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 15",
       "title": "Cierre",
       "questions": [
         {

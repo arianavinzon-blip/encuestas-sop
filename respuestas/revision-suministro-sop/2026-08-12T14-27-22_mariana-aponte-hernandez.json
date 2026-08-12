@@ -1,20 +1,20 @@
 {
   "encuesta": "revision-suministro-sop",
-  "nombre": "Ariana",
-  "planta": "Colombia Megalabs",
-  "submittedAt": "2026-08-05T00:54:33.230Z",
+  "nombre": "Mariana Aponte Hérnandez",
+  "planta": "Chile Garden House",
+  "submittedAt": "2026-08-12T14:27:22.468Z",
   "sections": [
     {
       "code": "MÓDULO 02",
       "title": "Datos generales",
       "questions": [
         {
-          "question": "Planta",
-          "answer": "Colombia Megalabs"
+          "question": "Compañía/Planta",
+          "answer": "Chile Garden House"
         },
         {
           "question": "Nombre",
-          "answer": "Ariana"
+          "answer": "Mariana Aponte Hérnandez"
         },
         {
           "question": "Área / Rol",
@@ -32,11 +32,11 @@
       "questions": [
         {
           "question": "¿La Reunión de Revisión de Suministro se está realizando actualmente en tu planta?",
-          "answer": "Parcialmente"
+          "answer": ""
         },
         {
           "question": "¿Quién lidera la reunión?",
-          "answer": "S&OP corporativo"
+          "answer": ""
         }
       ]
     },
@@ -46,15 +46,19 @@
       "questions": [
         {
           "question": "Temas que se tratan habitualmente",
-          "answer": "Capacidad instalada disponible"
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Información de Demanda",
+          "answer": ""
         },
         {
           "question": "Nivel de implementación · Capacidad instalada",
-          "answer": "No se trata"
+          "answer": ""
         },
         {
           "question": "Nivel de implementación · Plan maestro de producción",
-          "answer": "No se trata"
+          "answer": ""
         },
         {
           "question": "Nivel de implementación · Disponibilidad de materiales",

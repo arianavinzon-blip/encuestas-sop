@@ -1,24 +1,24 @@
 {
   "encuesta": "torres-control-sop",
-  "nombre": "Ariana Vinzon",
-  "compania": "CRC-LET",
-  "submittedAt": "2026-08-05T00:50:44.183Z",
+  "nombre": "CLAUDIA LILIANA ROJAS",
+  "compania": "Colombia Megalabs",
+  "submittedAt": "2026-08-11T15:42:38.840Z",
   "sections": [
     {
       "code": "MÓDULO 02",
       "title": "Datos generales",
       "questions": [
         {
-          "question": "Compañía",
-          "answer": "CRC-LET"
+          "question": "Compañía/Planta",
+          "answer": "Colombia Megalabs"
         },
         {
           "question": "Nombre",
-          "answer": "Ariana Vinzon"
+          "answer": "CLAUDIA LILIANA ROJAS"
         },
         {
           "question": "Participa actualmente en",
-          "answer": "Torre de Control"
+          "answer": "Ambos"
         }
       ]
     },
@@ -28,7 +28,7 @@
       "questions": [
         {
           "question": "¿La Torre de Control se está realizando actualmente en tu compañía?",
-          "answer": "Parcialmente"
+          "answer": "Sí"
         }
       ]
     },
@@ -38,27 +38,27 @@
       "questions": [
         {
           "question": "Instancias que se realizan actualmente (TdC)",
-          "answer": "Suministro"
+          "answer": "Demanda, Suministro, Excepciones, Desempeño"
         },
         {
           "question": "¿Las cuatro instancias están integradas como un proceso estructurado?",
-          "answer": "No"
+          "answer": "Sí"
         },
         {
           "question": "Nivel de implementación · Demanda",
-          "answer": "No se realiza"
+          "answer": "Regular"
         },
         {
           "question": "Nivel de implementación · Suministro",
-          "answer": "No se realiza"
+          "answer": "Regular"
         },
         {
           "question": "Nivel de implementación · Excepciones",
-          "answer": ""
+          "answer": "Regular"
         },
         {
           "question": "Nivel de implementación · Desempeño",
-          "answer": ""
+          "answer": "Regular"
         }
       ]
     },
@@ -72,15 +72,15 @@
         },
         {
           "question": "¿La frecuencia actual es adecuada? (TdC)",
-          "answer": ""
+          "answer": "Sí"
         },
         {
           "question": "¿Alguna instancia se omite o se combina con otra? (TdC)",
-          "answer": ""
+          "answer": "No"
         },
         {
           "question": "Si respondiste Sí: ¿cuál/es? (TdC)",
-          "answer": ""
+          "answer": "hacemos torres cada 3 semanas"
         }
       ]
     },
@@ -90,15 +90,15 @@
       "questions": [
         {
           "question": "¿Se registran las acciones en la herramienta de Torre de Control?",
-          "answer": ""
+          "answer": "Sí"
         },
         {
-          "question": "¿Utilizás la plataforma/App corporativa para el seguimiento?",
-          "answer": ""
+          "question": "¿Utilizás la plataforma/App corporativa para el seguimiento? (App Megalabs)",
+          "answer": "Sí"
         },
         {
           "question": "¿Qué dificultades encontrás en el uso de la herramienta?",
-          "answer": ""
+          "answer": "Ninguna"
         }
       ]
     },
@@ -108,11 +108,11 @@
       "questions": [
         {
           "question": "¿Qué cambios han implementado recientemente en la Torre de Control?",
-          "answer": ""
+          "answer": "Incluimos informe de abastecimiento de MM"
         },
         {
           "question": "¿Estos cambios han mejorado el funcionamiento?",
-          "answer": ""
+          "answer": "Sí"
         }
       ]
     },
@@ -122,11 +122,11 @@
       "questions": [
         {
           "question": "¿Qué valor aporta actualmente la Torre de Control?",
-          "answer": ""
+          "answer": "Alto"
         },
         {
           "question": "¿Dónde ves mayores oportunidades de mejora? (TdC)",
-          "answer": ""
+          "answer": "Otros"
         },
         {
           "question": "¿Qué mejoras implementarías para fortalecer la Torre de Control?",
@@ -140,11 +140,11 @@
       "questions": [
         {
           "question": "¿El proceso de S&OP se realiza actualmente en tu compañía?",
-          "answer": ""
+          "answer": "Sí"
         },
         {
           "question": "¿El proceso de S&OP cuenta con un calendario definido y conocido por los participantes?",
-          "answer": "No"
+          "answer": "Sí"
         }
       ]
     },
@@ -154,27 +154,27 @@
       "questions": [
         {
           "question": "Instancias que se realizan actualmente (S&OP)",
-          "answer": "Revisión de Suministro"
+          "answer": "Revisión de Demanda, Revisión de Suministro, Reunión de Consenso, Reunión Ejecutiva S&OP"
         },
         {
           "question": "¿Las distintas instancias están integradas como un proceso estructurado?",
-          "answer": ""
+          "answer": "Sí"
         },
         {
           "question": "Nivel de implementación · Revisión de Demanda",
-          "answer": "No se realiza"
+          "answer": "Regular"
         },
         {
-          "question": "Nivel de implementación · Revisión de Suministro",
-          "answer": ""
+          "question": "Nivel de implementación · Revisión de Suministro (Si corresponde)",
+          "answer": "Regular"
         },
         {
           "question": "Nivel de implementación · Consenso",
-          "answer": ""
+          "answer": "Regular"
         },
         {
           "question": "Nivel de implementación · Ejecutiva S&OP",
-          "answer": ""
+          "answer": "Regular"
         }
       ]
     },
@@ -184,19 +184,19 @@
       "questions": [
         {
           "question": "¿Con qué frecuencia se realiza el ciclo de S&OP?",
-          "answer": "Bimestral"
+          "answer": "Mensual"
         },
         {
           "question": "¿La frecuencia actual es adecuada? (S&OP)",
-          "answer": ""
+          "answer": "Sí"
         },
         {
           "question": "¿Alguna instancia del proceso se omite o se combina con otra? (S&OP)",
-          "answer": ""
+          "answer": "Sí"
         },
         {
           "question": "Si respondiste Sí: ¿cuál/es? (S&OP)",
-          "answer": "csdfcds"
+          "answer": "Se combinan S&OP y Torre cuando se cruzan en la misma semana"
         }
       ]
     },
@@ -206,15 +206,15 @@
       "questions": [
         {
           "question": "¿Las acciones definidas durante el proceso de S&OP quedan registradas y tienen seguimiento?",
-          "answer": ""
+          "answer": "Sí"
         },
         {
           "question": "¿Los acuerdos definidos en S&OP se traducen en acciones concretas dentro de la organización?",
-          "answer": ""
+          "answer": "Sí"
         },
         {
           "question": "¿Considerás que las decisiones tomadas durante el proceso de S&OP son utilizadas posteriormente en la gestión operativa y en la Torre de Control?",
-          "answer": ""
+          "answer": "Sí"
         }
       ]
     },
@@ -224,11 +224,11 @@
       "questions": [
         {
           "question": "¿Qué valor aporta actualmente el proceso de S&OP?",
-          "answer": ""
+          "answer": "Alto"
         },
         {
           "question": "¿Dónde ves mayores oportunidades de mejora? (S&OP)",
-          "answer": ""
+          "answer": "Visibilidad de riesgos"
         },
         {
           "question": "¿Qué mejoras implementarías para fortalecer el proceso de S&OP?",
@@ -238,6 +238,32 @@
     },
     {
       "code": "MÓDULO 14",
+      "title": "Impacto en los KPIs de Supply Chain",
+      "questions": [
+        {
+          "question": "Oportunidades de mejora para potenciar este impacto",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Accuracy",
+          "answer": "Impacto parcial"
+        },
+        {
+          "question": "Nivel de implementación · Vencidos",
+          "answer": "Impacto significativo"
+        },
+        {
+          "question": "Nivel de implementación · Faltantes",
+          "answer": "Impacto parcial"
+        },
+        {
+          "question": "Nivel de implementación · DIO",
+          "answer": "Impacto significativo"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 15",
       "title": "Cierre",
       "questions": [
         {

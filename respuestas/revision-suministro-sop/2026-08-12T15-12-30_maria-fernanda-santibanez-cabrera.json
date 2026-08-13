@@ -1,0 +1,130 @@
+{
+  "encuesta": "revision-suministro-sop",
+  "nombre": "Maria Fernanda Santibáñez Cabrera",
+  "planta": "Ecuador Acromax",
+  "submittedAt": "2026-08-12T15:12:30.285Z",
+  "sections": [
+    {
+      "code": "MÓDULO 02",
+      "title": "Datos generales",
+      "questions": [
+        {
+          "question": "Compañía/Planta",
+          "answer": "Ecuador Acromax"
+        },
+        {
+          "question": "Nombre",
+          "answer": "Maria Fernanda Santibáñez Cabrera"
+        },
+        {
+          "question": "Área / Rol",
+          "answer": "Otro"
+        },
+        {
+          "question": "Participa actualmente en la Reunión de Revisión de Suministro",
+          "answer": "Sí, regularmente"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 03",
+      "title": "Funcionamiento general de la reunión",
+      "questions": [
+        {
+          "question": "¿La Reunión de Revisión de Suministro se está realizando actualmente en tu planta?",
+          "answer": "Sí"
+        },
+        {
+          "question": "¿Quién lidera la reunión?",
+          "answer": "S&OP corporativo"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 04",
+      "title": "Contenidos que se tratan en la reunión",
+      "questions": [
+        {
+          "question": "Temas que se tratan habitualmente",
+          "answer": "Disponibilidad de materiales e insumos, Cumplimiento del plan de producción anterior, Otros"
+        },
+        {
+          "question": "Nivel de implementación · Información de Demanda",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Capacidad instalada",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Plan maestro de producción",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Disponibilidad de materiales",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Restricciones de líneas",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 05",
+      "title": "Seguimiento de acciones",
+      "questions": [
+        {
+          "question": "¿Las acciones acordadas quedan registradas y tienen seguimiento?",
+          "answer": "Sí"
+        },
+        {
+          "question": "¿Qué dificultades encontrás para dar seguimiento a los compromisos?",
+          "answer": "No evidencias, peligros/riesgos para cumplimiento de compromisos."
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 06",
+      "title": "Integración entre áreas",
+      "questions": [
+        {
+          "question": "¿Los temas que se escalan en esta reunión se resuelven?",
+          "answer": "Sí"
+        },
+        {
+          "question": "Como planta, ¿percibís que las problemáticas internas son resueltas en estas reuniones?",
+          "answer": "Parcialmente"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 07",
+      "title": "Valor y oportunidades de mejora",
+      "questions": [
+        {
+          "question": "¿Qué valor aporta actualmente la Reunión de Revisión de Suministro a tu planta?",
+          "answer": "Medio"
+        },
+        {
+          "question": "¿Dónde ves mayores oportunidades de mejora?",
+          "answer": "Comunicación entre planta y otras áreas"
+        },
+        {
+          "question": "¿Qué mejoras implementarías para fortalecer esta reunión?",
+          "answer": "Incluir en Indicadores Costo de No Calidad a Nivel Productivo y de Calidad.\nIdentificar previamente cuellos de botella en capacidad, materiales, personal o equipos.\nEmplear  dashboards con semáforos para una revisión objetiva y optimizar toma de decisiones."
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 08",
+      "title": "Cierre",
+      "questions": [
+        {
+          "question": "Sugerencias o comentarios adicionales",
+          "answer": "N/A"
+        }
+      ]
+    }
+  ]
+}

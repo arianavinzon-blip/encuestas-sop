@@ -1,0 +1,130 @@
+{
+  "encuesta": "revision-suministro-sop",
+  "nombre": "Lorena García",
+  "planta": "Uruguay Parque de las Ciencias",
+  "submittedAt": "2026-08-13T15:35:06.657Z",
+  "sections": [
+    {
+      "code": "MÓDULO 02",
+      "title": "Datos generales",
+      "questions": [
+        {
+          "question": "Compañía/Planta",
+          "answer": "Uruguay Parque de las Ciencias"
+        },
+        {
+          "question": "Nombre",
+          "answer": "Lorena García"
+        },
+        {
+          "question": "Área / Rol",
+          "answer": "Otro"
+        },
+        {
+          "question": "Participa actualmente en la Reunión de Revisión de Suministro",
+          "answer": "Sí, regularmente"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 03",
+      "title": "Funcionamiento general de la reunión",
+      "questions": [
+        {
+          "question": "¿La Reunión de Revisión de Suministro se está realizando actualmente en tu planta?",
+          "answer": "Sí"
+        },
+        {
+          "question": "¿Quién lidera la reunión?",
+          "answer": "S&OP corporativo"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 04",
+      "title": "Contenidos que se tratan en la reunión",
+      "questions": [
+        {
+          "question": "Temas que se tratan habitualmente",
+          "answer": "Capacidad instalada disponible, Disponibilidad de materiales e insumos, Cumplimiento del plan de producción anterior, Otros"
+        },
+        {
+          "question": "Nivel de implementación · Información de Demanda",
+          "answer": "Regular"
+        },
+        {
+          "question": "Nivel de implementación · Capacidad instalada",
+          "answer": "Regular"
+        },
+        {
+          "question": "Nivel de implementación · Plan maestro de producción",
+          "answer": "Parcial"
+        },
+        {
+          "question": "Nivel de implementación · Disponibilidad de materiales",
+          "answer": "Regular"
+        },
+        {
+          "question": "Nivel de implementación · Restricciones de líneas",
+          "answer": "No se trata"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 05",
+      "title": "Seguimiento de acciones",
+      "questions": [
+        {
+          "question": "¿Las acciones acordadas quedan registradas y tienen seguimiento?",
+          "answer": "Sí"
+        },
+        {
+          "question": "¿Qué dificultades encontrás para dar seguimiento a los compromisos?",
+          "answer": "No identifico dificultades desde SS.AA. La planilla está dividida por área y se envía recordatorio para completarla previo a la reunión"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 06",
+      "title": "Integración entre áreas",
+      "questions": [
+        {
+          "question": "¿Los temas que se escalan en esta reunión se resuelven?",
+          "answer": "Sí"
+        },
+        {
+          "question": "Como planta, ¿percibís que las problemáticas internas son resueltas en estas reuniones?",
+          "answer": "Sí"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 07",
+      "title": "Valor y oportunidades de mejora",
+      "questions": [
+        {
+          "question": "¿Qué valor aporta actualmente la Reunión de Revisión de Suministro a tu planta?",
+          "answer": "Medio"
+        },
+        {
+          "question": "¿Dónde ves mayores oportunidades de mejora?",
+          "answer": "Otros"
+        },
+        {
+          "question": "¿Qué mejoras implementarías para fortalecer esta reunión?",
+          "answer": "En cuanto a compartir las proyecciones de Planta, no siempre se cuenta con la información disponible con la antelación suficiente para realizar los cálculos de capacidad ocupada. Entiendo esto mejorará con la implementación de SAP IBP."
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 08",
+      "title": "Cierre",
+      "questions": [
+        {
+          "question": "Sugerencias o comentarios adicionales",
+          "answer": "Considero que la información volcada es suficiente para lo que necesito como insumo. Particularmente el intercambio con los planificadores y compras aporta claridad y dirección para la planificación de SS.AA tanto desde las aprobaciones de materias primas como de productos críticos.\nEl intercambio es abierto y claro entre todas las áreas."
+        }
+      ]
+    }
+  ]
+}

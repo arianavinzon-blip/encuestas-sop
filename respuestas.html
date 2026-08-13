@@ -125,6 +125,18 @@
   .pie-row .sw{width:9px; height:9px; border-radius:2px; flex:none;}
   .pie-val{margin-left:auto; font-family:var(--font-mono); color:var(--muted); font-variant-numeric:tabular-nums;}
 
+  .sat-list{display:flex; flex-direction:column; gap:10px;}
+  .sat-row{border:1px solid var(--line); border-radius:var(--radius-sm); overflow:hidden;}
+  .sat-head{display:grid; grid-template-columns:180px 1fr 46px; align-items:center; gap:12px; padding:11px 14px; cursor:pointer;}
+  .sat-head:hover{background:var(--panel-2);}
+  .sat-head .rlabel{font-size:12.5px; color:var(--text);}
+  .sat-n{font-size:11px; color:var(--muted-2); font-family:var(--font-mono); margin-left:7px;}
+  .sat-head .rval{font-family:var(--font-mono); font-size:12px; color:var(--muted); text-align:right; font-variant-numeric:tabular-nums;}
+  .sat-detail{display:none; padding:2px 14px 12px; border-top:1px solid var(--line-soft); background:var(--panel-2);}
+  .sat-detail.open{display:block;}
+  .sat-person{display:flex; justify-content:space-between; padding:6px 0; font-size:12.5px; border-top:1px dashed var(--line);}
+  .sat-person:first-child{border-top:none;}
+
   /* tabs */
   .tabs{display:flex; gap:8px; margin:22px 0 26px; border-bottom:1px solid var(--line-soft);}
   .tab{
@@ -371,6 +383,12 @@ function normalizeTdc(raw){
       "Consenso": findAnswer(s, "Nivel de implementación · Consenso"),
       "Ejecutiva S&OP": findAnswer(s, "Nivel de implementación · Ejecutiva S&OP"),
     },
+    impacto: {
+      Accuracy: findAnswer(s, "Nivel de implementación · Accuracy"),
+      Vencidos: findAnswer(s, "Nivel de implementación · Vencidos"),
+      Faltantes: findAnswer(s, "Nivel de implementación · Faltantes"),
+      DIO: findAnswer(s, "Nivel de implementación · DIO"),
+    },
     comentario: findAnswer(s, "Sugerencias o comentarios adicionales"),
     _raw: raw,
   };
@@ -547,6 +565,56 @@ function exportCSV(list, filename){
   URL.revokeObjectURL(url);
 }
 
+const SAT_SCORE = {
+  "No se realiza": 0, "No se trata": 0, "Sin impacto": 0,
+  "Parcial": 50, "Impacto parcial": 50,
+  "Regular": 100, "Impacto significativo": 100,
+};
+function avgScore(values){
+  const nums = values.filter(v => v in SAT_SCORE).map(v => SAT_SCORE[v]);
+  if (!nums.length) return null;
+  return nums.reduce((a,b)=>a+b, 0) / nums.length;
+}
+function satColor(score){
+  if (score == null) return "var(--muted-2)";
+  if (score >= 66) return "var(--ok)";
+  if (score >= 33) return "var(--warn)";
+  return "var(--crit)";
+}
+function satisfactionSection(list, groupKeyFn, personScoreFn){
+  const groups = new Map();
+  list.forEach(r=>{
+    const key = groupKeyFn(r);
+    if (!key) return;
+    const score = personScoreFn(r);
+    if (score == null) return;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push({ nombre: r.nombre || '(sin nombre)', score });
+  });
+  const rows = [...groups.entries()]
+    .map(([key, people]) => ({ key, people, avg: people.reduce((a,p)=>a+p.score,0)/people.length }))
+    .sort((a,b) => b.avg - a.avg);
+  if (!rows.length) return `<p class="empty-note">Todavía no hay datos suficientes (depende de que se hayan respondido las matrices de nivel de implementación).</p>`;
+  return `<div class="sat-list">${rows.map((g,i) => `
+    <div class="sat-row">
+      <div class="sat-head">
+        <div class="rlabel">${esc(g.key)}<span class="sat-n">${g.people.length} ${g.people.length===1?'persona':'personas'}</span></div>
+        <div class="track"><div class="fill" style="width:${Math.round(g.avg)}%; background:${satColor(g.avg)}"></div></div>
+        <div class="rval">${Math.round(g.avg)}%</div>
+      </div>
+      <div class="sat-detail" id="sat-detail-${i}">
+        ${g.people.sort((a,b)=>b.score-a.score).map(p => `<div class="sat-person"><span>${esc(p.nombre)}</span><span class="mono" style="color:${satColor(p.score)}">${Math.round(p.score)}%</span></div>`).join("")}
+      </div>
+    </div>`).join("")}</div>`;
+}
+function wireSatToggles(scopeId){
+  document.querySelectorAll(`#${scopeId} .sat-row`).forEach(row=>{
+    row.querySelector('.sat-head').addEventListener('click', ()=>{
+      row.querySelector('.sat-detail').classList.toggle('open');
+    });
+  });
+}
+
 /* ---------- render: Torres de Control y S&OP ---------- */
 function renderTdc(){
   const total = TDC.length;
@@ -631,6 +699,12 @@ function renderTdc(){
         </table>
       </div>
     </div>
+
+    <div>
+      <div class="section-title"><h2>% de Satisfacción por Compañía</h2></div>
+      <div class="hint" style="margin:2px 0 12px;">Calculado a partir de las matrices de nivel de implementación y de impacto en KPIs. Tocá una compañía para ver el detalle por persona.</div>
+      <div class="card">${satisfactionSection(TDC, r=>r.compania, r=>avgScore([...Object.values(r.tdc), ...Object.values(r.sop), ...Object.values(r.impacto||{})]))}</div>
+    </div>
   `;
 
   document.getElementById('btn-export-tdc').addEventListener('click', () => exportCSV(TDC, 'torres-control-sop.csv'));
@@ -662,6 +736,8 @@ function renderTdc(){
     </div></td>`;
     tbody.appendChild(detailTr);
   });
+
+  wireSatToggles('panel-tdc');
 }
 
 /* ---------- render: Revisión de Suministro ---------- */
@@ -734,6 +810,12 @@ function renderRs(){
         </table>
       </div>
     </div>
+
+    <div>
+      <div class="section-title"><h2>% de Satisfacción por Planta</h2></div>
+      <div class="hint" style="margin:2px 0 12px;">Calculado a partir de la matriz de nivel de implementación. Tocá una planta para ver el detalle por persona.</div>
+      <div class="card">${satisfactionSection(RS, r=>r.planta, r=>avgScore(Object.values(r.niveles)))}</div>
+    </div>
   `;
 
   document.getElementById('btn-export-rs').addEventListener('click', () => exportCSV(RS, 'revision-suministro-sop.csv'));
@@ -760,6 +842,8 @@ function renderRs(){
     </div></td>`;
     tbody.appendChild(detailTr);
   });
+
+  wireSatToggles('panel-rs');
 }
 
 function toggleDetail(i, prefix){

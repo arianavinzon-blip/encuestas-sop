@@ -1,0 +1,130 @@
+{
+  "encuesta": "revision-suministro-sop",
+  "nombre": "ROCIO KAROLINA GUZMAN ARAUJO",
+  "planta": "Dominicana Rowe",
+  "submittedAt": "2026-08-28T16:25:28.510Z",
+  "sections": [
+    {
+      "code": "MÓDULO 02",
+      "title": "Datos generales",
+      "questions": [
+        {
+          "question": "Compañía/Planta",
+          "answer": "Dominicana Rowe"
+        },
+        {
+          "question": "Nombre",
+          "answer": "ROCIO KAROLINA GUZMAN ARAUJO"
+        },
+        {
+          "question": "Área / Rol",
+          "answer": "Planificador de planta"
+        },
+        {
+          "question": "Participa actualmente en la Reunión de Revisión de Suministro",
+          "answer": "Sí, regularmente"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 03",
+      "title": "Funcionamiento general de la reunión",
+      "questions": [
+        {
+          "question": "¿La Reunión de Revisión de Suministro se está realizando actualmente en tu planta?",
+          "answer": "Sí"
+        },
+        {
+          "question": "¿Quién lidera la reunión?",
+          "answer": "Ejecutivo SC corp"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 04",
+      "title": "Contenidos que se tratan en la reunión",
+      "questions": [
+        {
+          "question": "Temas que se tratan habitualmente",
+          "answer": "Capacidad instalada disponible, Plan maestro de producción, Disponibilidad de materiales e insumos, Restricciones de líneas — corto plazo, Restricciones de líneas — mediano/largo plazo, Mantenimiento programado, Cumplimiento del plan de producción anterior"
+        },
+        {
+          "question": "Nivel de implementación · Información de Demanda",
+          "answer": "Regular"
+        },
+        {
+          "question": "Nivel de implementación · Capacidad instalada",
+          "answer": "Regular"
+        },
+        {
+          "question": "Nivel de implementación · Plan maestro de producción",
+          "answer": "Regular"
+        },
+        {
+          "question": "Nivel de implementación · Disponibilidad de materiales",
+          "answer": "Regular"
+        },
+        {
+          "question": "Nivel de implementación · Restricciones de líneas",
+          "answer": "Regular"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 05",
+      "title": "Seguimiento de acciones",
+      "questions": [
+        {
+          "question": "¿Las acciones acordadas quedan registradas y tienen seguimiento?",
+          "answer": "Sí"
+        },
+        {
+          "question": "¿Qué dificultades encontrás para dar seguimiento a los compromisos?",
+          "answer": "Ninguna, tenemos un script con los puntos de seguimiento."
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 06",
+      "title": "Integración entre áreas",
+      "questions": [
+        {
+          "question": "¿Los temas que se escalan en esta reunión se resuelven?",
+          "answer": "Sí"
+        },
+        {
+          "question": "Como planta, ¿percibís que las problemáticas internas son resueltas en estas reuniones?",
+          "answer": "Parcialmente"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 07",
+      "title": "Valor y oportunidades de mejora",
+      "questions": [
+        {
+          "question": "¿Qué valor aporta actualmente la Reunión de Revisión de Suministro a tu planta?",
+          "answer": "Alto"
+        },
+        {
+          "question": "¿Dónde ves mayores oportunidades de mejora?",
+          "answer": "Resolución de temas escalados"
+        },
+        {
+          "question": "¿Qué mejoras implementarías para fortalecer esta reunión?",
+          "answer": "Consideremos implementar una herramienta más consolidada y ágil que nos permita visualizar y dar seguimiento a todos los indicadores. La elaboración mensual de un PPT para presentar esta información representa un esfuerzo operativo que podríamos optimizar y que no necesariamente agrega valor al proceso."
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 08",
+      "title": "Cierre",
+      "questions": [
+        {
+          "question": "Sugerencias o comentarios adicionales",
+          "answer": "Lo más importante es evitar que la reunión de S&OP se convierta simplemente en una reunión de revisión de indicadores. El objetivo principal debe ser tomar decisiones sobre las brechas entre la demanda y la capacidad de suministro."
+        }
+      ]
+    }
+  ]
+}

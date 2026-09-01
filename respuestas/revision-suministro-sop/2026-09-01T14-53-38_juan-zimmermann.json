@@ -1,0 +1,130 @@
+{
+  "encuesta": "revision-suministro-sop",
+  "nombre": "Juan Zimmermann",
+  "planta": "Argentina Poen",
+  "submittedAt": "2026-09-01T14:53:38.270Z",
+  "sections": [
+    {
+      "code": "MÓDULO 02",
+      "title": "Datos generales",
+      "questions": [
+        {
+          "question": "Compañía/Planta",
+          "answer": "Argentina Poen"
+        },
+        {
+          "question": "Nombre",
+          "answer": "Juan Zimmermann"
+        },
+        {
+          "question": "Área / Rol",
+          "answer": "Otro"
+        },
+        {
+          "question": "Participa actualmente en la Reunión de Revisión de Suministro",
+          "answer": "Sí, regularmente"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 03",
+      "title": "Funcionamiento general de la reunión",
+      "questions": [
+        {
+          "question": "¿La Reunión de Revisión de Suministro se está realizando actualmente en tu planta?",
+          "answer": "Sí"
+        },
+        {
+          "question": "¿Quién lidera la reunión?",
+          "answer": "Planificador de la planta"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 04",
+      "title": "Contenidos que se tratan en la reunión",
+      "questions": [
+        {
+          "question": "Temas que se tratan habitualmente",
+          "answer": "Capacidad instalada disponible, Plan maestro de producción, Disponibilidad de materiales e insumos, Restricciones de líneas — corto plazo, Restricciones de líneas — mediano/largo plazo, Mantenimiento programado, Cumplimiento del plan de producción anterior"
+        },
+        {
+          "question": "Nivel de implementación · Información de Demanda",
+          "answer": "Regular"
+        },
+        {
+          "question": "Nivel de implementación · Capacidad instalada",
+          "answer": "Regular"
+        },
+        {
+          "question": "Nivel de implementación · Plan maestro de producción",
+          "answer": "Regular"
+        },
+        {
+          "question": "Nivel de implementación · Disponibilidad de materiales",
+          "answer": "Regular"
+        },
+        {
+          "question": "Nivel de implementación · Restricciones de líneas",
+          "answer": "Regular"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 05",
+      "title": "Seguimiento de acciones",
+      "questions": [
+        {
+          "question": "¿Las acciones acordadas quedan registradas y tienen seguimiento?",
+          "answer": "Sí"
+        },
+        {
+          "question": "¿Qué dificultades encontrás para dar seguimiento a los compromisos?",
+          "answer": "Ninguna"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 06",
+      "title": "Integración entre áreas",
+      "questions": [
+        {
+          "question": "¿Los temas que se escalan en esta reunión se resuelven?",
+          "answer": "Sí"
+        },
+        {
+          "question": "Como planta, ¿percibís que las problemáticas internas son resueltas en estas reuniones?",
+          "answer": "Parcialmente"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 07",
+      "title": "Valor y oportunidades de mejora",
+      "questions": [
+        {
+          "question": "¿Qué valor aporta actualmente la Reunión de Revisión de Suministro a tu planta?",
+          "answer": "Alto"
+        },
+        {
+          "question": "¿Dónde ves mayores oportunidades de mejora?",
+          "answer": "Cumplimiento de la agenda definida, Comunicación entre planta y otras áreas, Calidad de la información de capacidad/materiales, Seguimiento de acciones"
+        },
+        {
+          "question": "¿Qué mejoras implementarías para fortalecer esta reunión?",
+          "answer": "Desagregar la causa de los valores de cada KPI (Se hace informalmente)\nMejorar el Forecast (Tienen que estar para junio)"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 08",
+      "title": "Cierre",
+      "questions": [
+        {
+          "question": "Sugerencias o comentarios adicionales",
+          "answer": "Sin comentarios."
+        }
+      ]
+    }
+  ]
+}

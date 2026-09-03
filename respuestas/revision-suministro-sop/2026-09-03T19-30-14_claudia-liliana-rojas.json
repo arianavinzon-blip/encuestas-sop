@@ -1,0 +1,130 @@
+{
+  "encuesta": "revision-suministro-sop",
+  "nombre": "CLAUDIA LILIANA ROJAS",
+  "planta": "Colombia Megalabs",
+  "submittedAt": "2026-09-03T19:30:14.368Z",
+  "sections": [
+    {
+      "code": "MÓDULO 02",
+      "title": "Datos generales",
+      "questions": [
+        {
+          "question": "Compañía/Planta",
+          "answer": "Colombia Megalabs"
+        },
+        {
+          "question": "Nombre",
+          "answer": "CLAUDIA LILIANA ROJAS"
+        },
+        {
+          "question": "Área / Rol",
+          "answer": "Planificador de planta"
+        },
+        {
+          "question": "Participa actualmente en la Reunión de Revisión de Suministro",
+          "answer": "Sí, regularmente"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 03",
+      "title": "Funcionamiento general de la reunión",
+      "questions": [
+        {
+          "question": "¿La Reunión de Revisión de Suministro se está realizando actualmente en tu planta?",
+          "answer": "Sí"
+        },
+        {
+          "question": "¿Quién lidera la reunión?",
+          "answer": "Planificador de la planta"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 04",
+      "title": "Contenidos que se tratan en la reunión",
+      "questions": [
+        {
+          "question": "Temas que se tratan habitualmente",
+          "answer": "Capacidad instalada disponible, Disponibilidad de materiales e insumos, Restricciones de líneas — mediano/largo plazo, Cumplimiento del plan de producción anterior"
+        },
+        {
+          "question": "Nivel de implementación · Información de Demanda",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Capacidad instalada",
+          "answer": "Regular"
+        },
+        {
+          "question": "Nivel de implementación · Plan maestro de producción",
+          "answer": ""
+        },
+        {
+          "question": "Nivel de implementación · Disponibilidad de materiales",
+          "answer": "Regular"
+        },
+        {
+          "question": "Nivel de implementación · Restricciones de líneas",
+          "answer": "Regular"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 05",
+      "title": "Seguimiento de acciones",
+      "questions": [
+        {
+          "question": "¿Las acciones acordadas quedan registradas y tienen seguimiento?",
+          "answer": "Sí"
+        },
+        {
+          "question": "¿Qué dificultades encontrás para dar seguimiento a los compromisos?",
+          "answer": "Ninguna"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 06",
+      "title": "Integración entre áreas",
+      "questions": [
+        {
+          "question": "¿Los temas que se escalan en esta reunión se resuelven?",
+          "answer": "Sí"
+        },
+        {
+          "question": "Como planta, ¿percibís que las problemáticas internas son resueltas en estas reuniones?",
+          "answer": "Sí"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 07",
+      "title": "Valor y oportunidades de mejora",
+      "questions": [
+        {
+          "question": "¿Qué valor aporta actualmente la Reunión de Revisión de Suministro a tu planta?",
+          "answer": "Alto"
+        },
+        {
+          "question": "¿Dónde ves mayores oportunidades de mejora?",
+          "answer": "Comunicación entre planta y otras áreas"
+        },
+        {
+          "question": "¿Qué mejoras implementarías para fortalecer esta reunión?",
+          "answer": "La peridiocidad, por cada 2 meses ya que no cambia mucho de mes a mes"
+        }
+      ]
+    },
+    {
+      "code": "MÓDULO 08",
+      "title": "Cierre",
+      "questions": [
+        {
+          "question": "Sugerencias o comentarios adicionales",
+          "answer": ""
+        }
+      ]
+    }
+  ]
+}

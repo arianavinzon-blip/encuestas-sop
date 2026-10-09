@@ -118,6 +118,14 @@
   }
   .btn-export:hover{background:var(--teal-soft);}
 
+  .filter-bar{display:flex; align-items:center; gap:10px; margin-bottom:16px; flex-wrap:wrap;}
+  .filter-bar label{font-size:12.5px; color:var(--muted); font-weight:600;}
+  .filter-select{
+    font-family:var(--font-body); font-size:12.5px; color:var(--text); background:var(--panel-2);
+    border:1px solid var(--line); border-radius:var(--radius-sm); padding:6px 10px; cursor:pointer;
+  }
+  .filter-select:focus{outline:2px solid var(--teal); outline-offset:1px;}
+
   .pie-block{display:flex; align-items:center; gap:22px; flex-wrap:wrap;}
   .pie{width:116px; height:116px; border-radius:50%; flex:none;}
   .pie-legend{display:flex; flex-direction:column; gap:9px; font-size:12.5px; flex:1; min-width:140px;}
@@ -316,6 +324,8 @@ const BRANCH = "main";
 
 let TDC = [];
 let RS = [];
+let tdcFilter = 'all';
+let rsFilter = 'all';
 
 /* ---------- helpers ---------- */
 const ORD3 = ["No se realiza","Parcial","Regular"];
@@ -617,29 +627,38 @@ function wireSatToggles(scopeId){
 
 /* ---------- render: Torres de Control y S&OP ---------- */
 function renderTdc(){
-  const total = TDC.length;
-  document.getElementById('n-tdc').textContent = total;
+  const grandTotal = TDC.length;
+  document.getElementById('n-tdc').textContent = grandTotal;
 
-  if (!total){
+  if (!grandTotal){
     document.getElementById('panel-tdc').innerHTML = `<div class="card"><p class="empty-note">Todavía no hay respuestas para esta encuesta.</p></div>`;
     return;
   }
 
-  const companias = countBy(TDC, r=>r.compania);
-  const tdcEstado = countBy(TDC, r=>r.tdc_activa);
-  const tdcFreq = countBy(TDC, r=>r.tdc_frecuencia);
-  const sopEstado = countBy(TDC, r=>r.sop_activo);
-  const sopFreq = countBy(TDC, r=>r.sop_frecuencia);
+  const allCompanias = Array.from(countBy(TDC, r=>r.compania).keys()).sort((a,b)=>a.localeCompare(b));
+  const data = (tdcFilter && tdcFilter!=='all') ? TDC.filter(r=>r.compania===tdcFilter) : TDC;
+  const total = data.length;
+
+  const companias = countBy(data, r=>r.compania);
+  const tdcEstado = countBy(data, r=>r.tdc_activa);
+  const tdcFreq = countBy(data, r=>r.tdc_frecuencia);
+  const sopEstado = countBy(data, r=>r.sop_activo);
+  const sopFreq = countBy(data, r=>r.sop_frecuencia);
 
   document.getElementById('panel-tdc').innerHTML = `
-    <div style="display:flex; justify-content:flex-end;">
-      <button class="btn-export" id="btn-export-tdc">⬇ Exportar a Excel</button>
+    <div class="filter-bar">
+      <label for="filter-tdc">Filtrar por compañía</label>
+      <select class="filter-select" id="filter-tdc">
+        <option value="all" ${tdcFilter==='all'?'selected':''}>Todas las compañías (${grandTotal})</option>
+        ${allCompanias.map(c=>`<option value="${esc(c)}" ${tdcFilter===c?'selected':''}>${esc(c)}</option>`).join('')}
+      </select>
+      <button class="btn-export" id="btn-export-tdc" style="margin-left:auto;">⬇ Exportar a Excel</button>
     </div>
     <div class="stats">
       <div class="stat"><div class="label">Respuestas</div><div class="value">${total}</div><div class="sub">compañías participantes</div></div>
       <div class="stat"><div class="label">Compañías distintas</div><div class="value">${companias.size}</div><div class="sub">de la lista corporativa</div></div>
       <div class="stat"><div class="label">TdC activa (Sí + Parcial)</div><div class="value">${pct((tdcEstado.get("Sí")||0)+(tdcEstado.get("Parcialmente")||0), total)}%</div><div class="sub">del total de respuestas</div></div>
-      <div class="stat"><div class="label">Última respuesta</div><div class="value" style="font-size:18px">${fechaUltima(TDC)}</div><div class="sub">hora local</div></div>
+      <div class="stat"><div class="label">Última respuesta</div><div class="value" style="font-size:18px">${fechaUltima(data)}</div><div class="sub">hora local</div></div>
     </div>
 
     <div class="grid2">
@@ -658,7 +677,7 @@ function renderTdc(){
         <div><h3>Nivel de implementación — Torre de Control</h3><div class="hint">Por instancia, entre las 4 reuniones del modelo</div></div>
         ${ordLegend(ORD3)}
       </div>
-      ${ordinalMatrixFrom(dim => TDC.map(r=>r.tdc[dim]), ["Demanda","Suministro","Excepciones","Desempeño"], total, ORD3)}
+      ${ordinalMatrixFrom(dim => data.map(r=>r.tdc[dim]), ["Demanda","Suministro","Excepciones","Desempeño"], total, ORD3)}
     </div>
 
     <div class="grid2">
@@ -677,7 +696,7 @@ function renderTdc(){
         <div><h3>Nivel de implementación — S&amp;OP</h3><div class="hint">Por instancia, entre las 4 reuniones del modelo</div></div>
         ${ordLegend(ORD3)}
       </div>
-      ${ordinalMatrixFrom(dim => TDC.map(r=>r.sop[dim]), ["Revisión de Demanda","Revisión de Suministro (Si corresponde)","Consenso","Ejecutiva S&OP"], total, ORD3)}
+      ${ordinalMatrixFrom(dim => data.map(r=>r.sop[dim]), ["Revisión de Demanda","Revisión de Suministro (Si corresponde)","Consenso","Ejecutiva S&OP"], total, ORD3)}
     </div>
 
     <div>
@@ -687,7 +706,7 @@ function renderTdc(){
 
     <div>
       <div class="section-title"><h2>Comentarios y sugerencias</h2></div>
-      <div class="card" style="margin-top:12px">${feed(TDC, "TdC / S&OP")}</div>
+      <div class="card" style="margin-top:12px">${feed(data, "TdC / S&OP")}</div>
     </div>
 
     <div>
@@ -703,14 +722,15 @@ function renderTdc(){
     <div>
       <div class="section-title"><h2>% de Satisfacción por Compañía</h2></div>
       <div class="hint" style="margin:2px 0 12px;">Calculado a partir de las matrices de nivel de implementación y de impacto en KPIs. Tocá una compañía para ver el detalle por persona.</div>
-      <div class="card">${satisfactionSection(TDC, r=>r.compania, r=>avgScore([...Object.values(r.tdc), ...Object.values(r.sop), ...Object.values(r.impacto||{})]))}</div>
+      <div class="card">${satisfactionSection(data, r=>r.compania, r=>avgScore([...Object.values(r.tdc), ...Object.values(r.sop), ...Object.values(r.impacto||{})]))}</div>
     </div>
   `;
 
-  document.getElementById('btn-export-tdc').addEventListener('click', () => exportCSV(TDC, 'torres-control-sop.csv'));
+  document.getElementById('filter-tdc').addEventListener('change', (e) => { tdcFilter = e.target.value; renderTdc(); });
+  document.getElementById('btn-export-tdc').addEventListener('click', () => exportCSV(data, tdcFilter==='all' ? 'torres-control-sop.csv' : `torres-control-sop-${tdcFilter}.csv`));
 
   const tbody = document.getElementById('tbody-tdc');
-  TDC.forEach((r,i)=>{
+  data.forEach((r,i)=>{
     const tr = document.createElement('tr');
     tr.innerHTML = `<td class="mono">${esc(r.compania)}</td><td>${esc(r.nombre)}</td>
       <td><span class="pill ${STATUS_PILL[r.tdc_activa]||''}">${esc(r.tdc_activa||'—')}</span></td>
@@ -742,28 +762,37 @@ function renderTdc(){
 
 /* ---------- render: Revisión de Suministro ---------- */
 function renderRs(){
-  const total = RS.length;
-  document.getElementById('n-rs').textContent = total;
+  const grandTotal = RS.length;
+  document.getElementById('n-rs').textContent = grandTotal;
 
-  if (!total){
+  if (!grandTotal){
     document.getElementById('panel-rs').innerHTML = `<div class="card"><p class="empty-note">Todavía no hay respuestas para esta encuesta.</p></div>`;
     return;
   }
 
-  const plantas = countBy(RS, r=>r.planta);
-  const estado = countBy(RS, r=>r.se_realiza);
-  const lidera = countBy(RS, r=>r.lidera);
-  const areas = countBy(RS, r=>r.area);
+  const allPlantas = Array.from(countBy(RS, r=>r.planta).keys()).sort((a,b)=>a.localeCompare(b));
+  const data = (rsFilter && rsFilter!=='all') ? RS.filter(r=>r.planta===rsFilter) : RS;
+  const total = data.length;
+
+  const plantas = countBy(data, r=>r.planta);
+  const estado = countBy(data, r=>r.se_realiza);
+  const lidera = countBy(data, r=>r.lidera);
+  const areas = countBy(data, r=>r.area);
 
   document.getElementById('panel-rs').innerHTML = `
-    <div style="display:flex; justify-content:flex-end;">
-      <button class="btn-export" id="btn-export-rs">⬇ Exportar a Excel</button>
+    <div class="filter-bar">
+      <label for="filter-rs">Filtrar por planta</label>
+      <select class="filter-select" id="filter-rs">
+        <option value="all" ${rsFilter==='all'?'selected':''}>Todas las plantas (${grandTotal})</option>
+        ${allPlantas.map(p=>`<option value="${esc(p)}" ${rsFilter===p?'selected':''}>${esc(p)}</option>`).join('')}
+      </select>
+      <button class="btn-export" id="btn-export-rs" style="margin-left:auto;">⬇ Exportar a Excel</button>
     </div>
     <div class="stats">
       <div class="stat"><div class="label">Respuestas</div><div class="value">${total}</div><div class="sub">plantas participantes</div></div>
       <div class="stat"><div class="label">Plantas distintas</div><div class="value">${plantas.size}</div><div class="sub">de la lista corporativa</div></div>
       <div class="stat"><div class="label">Reunión activa (Sí + Parcial)</div><div class="value">${pct((estado.get("Sí")||0)+(estado.get("Parcialmente")||0), total)}%</div><div class="sub">del total de respuestas</div></div>
-      <div class="stat"><div class="label">Última respuesta</div><div class="value" style="font-size:18px">${fechaUltima(RS)}</div><div class="sub">hora local</div></div>
+      <div class="stat"><div class="label">Última respuesta</div><div class="value" style="font-size:18px">${fechaUltima(data)}</div><div class="sub">hora local</div></div>
     </div>
 
     <div class="grid2">
@@ -782,7 +811,7 @@ function renderRs(){
         <div><h3>Nivel de implementación por tema</h3><div class="hint">Temas tratados en la Revisión de Suministro</div></div>
         ${ordLegend(ORD3_RS)}
       </div>
-      ${ordinalMatrixFrom(dim => RS.map(r=>r.niveles[dim]), ["Información de Demanda","Capacidad instalada","Plan maestro de producción","Disponibilidad de materiales","Restricciones de líneas"], total, ORD3_RS)}
+      ${ordinalMatrixFrom(dim => data.map(r=>r.niveles[dim]), ["Información de Demanda","Capacidad instalada","Plan maestro de producción","Disponibilidad de materiales","Restricciones de líneas"], total, ORD3_RS)}
     </div>
 
     <div class="grid2">
@@ -798,7 +827,7 @@ function renderRs(){
 
     <div>
       <div class="section-title"><h2>Comentarios y sugerencias</h2></div>
-      <div class="card" style="margin-top:12px">${feed(RS, "Rev. Suministro")}</div>
+      <div class="card" style="margin-top:12px">${feed(data, "Rev. Suministro")}</div>
     </div>
 
     <div>
@@ -814,14 +843,15 @@ function renderRs(){
     <div>
       <div class="section-title"><h2>% de Satisfacción por Planta</h2></div>
       <div class="hint" style="margin:2px 0 12px;">Calculado a partir de la matriz de nivel de implementación. Tocá una planta para ver el detalle por persona.</div>
-      <div class="card">${satisfactionSection(RS, r=>r.planta, r=>avgScore(Object.values(r.niveles)))}</div>
+      <div class="card">${satisfactionSection(data, r=>r.planta, r=>avgScore(Object.values(r.niveles)))}</div>
     </div>
   `;
 
-  document.getElementById('btn-export-rs').addEventListener('click', () => exportCSV(RS, 'revision-suministro-sop.csv'));
+  document.getElementById('filter-rs').addEventListener('change', (e) => { rsFilter = e.target.value; renderRs(); });
+  document.getElementById('btn-export-rs').addEventListener('click', () => exportCSV(data, rsFilter==='all' ? 'revision-suministro-sop.csv' : `revision-suministro-sop-${rsFilter}.csv`));
 
   const tbody = document.getElementById('tbody-rs');
-  RS.forEach((r,i)=>{
+  data.forEach((r,i)=>{
     const tr = document.createElement('tr');
     tr.innerHTML = `<td>${esc(r.planta)}</td><td>${esc(r.nombre)}</td><td>${esc(r.area)}</td>
       <td><span class="pill ${STATUS_PILL[r.se_realiza]||''}">${esc(r.se_realiza||'—')}</span></td>

@@ -644,6 +644,8 @@ function renderTdc(){
   const tdcFreq = countBy(data, r=>r.tdc_frecuencia);
   const sopEstado = countBy(data, r=>r.sop_activo);
   const sopFreq = countBy(data, r=>r.sop_frecuencia);
+  const tdcScores = data.map(r=>avgScore([...Object.values(r.tdc), ...Object.values(r.sop), ...Object.values(r.impacto||{})])).filter(s=>s!=null);
+  const tdcSatAvg = tdcScores.length ? Math.round(tdcScores.reduce((a,b)=>a+b,0)/tdcScores.length) : null;
 
   document.getElementById('panel-tdc').innerHTML = `
     <div class="filter-bar">
@@ -656,7 +658,7 @@ function renderTdc(){
     </div>
     <div class="stats">
       <div class="stat"><div class="label">Respuestas</div><div class="value">${total}</div><div class="sub">compañías participantes</div></div>
-      <div class="stat"><div class="label">Compañías distintas</div><div class="value">${companias.size}</div><div class="sub">de la lista corporativa</div></div>
+      <div class="stat"><div class="label">Satisfacción promedio</div><div class="value" style="color:${satColor(tdcSatAvg)}">${tdcSatAvg!=null ? tdcSatAvg+'%' : '—'}</div><div class="sub">según nivel de implementación</div></div>
       <div class="stat"><div class="label">TdC activa (Sí + Parcial)</div><div class="value">${pct((tdcEstado.get("Sí")||0)+(tdcEstado.get("Parcialmente")||0), total)}%</div><div class="sub">del total de respuestas</div></div>
       <div class="stat"><div class="label">Última respuesta</div><div class="value" style="font-size:18px">${fechaUltima(data)}</div><div class="sub">hora local</div></div>
     </div>
@@ -778,6 +780,8 @@ function renderRs(){
   const estado = countBy(data, r=>r.se_realiza);
   const lidera = countBy(data, r=>r.lidera);
   const areas = countBy(data, r=>r.area);
+  const rsScores = data.map(r=>avgScore(Object.values(r.niveles))).filter(s=>s!=null);
+  const rsSatAvg = rsScores.length ? Math.round(rsScores.reduce((a,b)=>a+b,0)/rsScores.length) : null;
 
   document.getElementById('panel-rs').innerHTML = `
     <div class="filter-bar">
@@ -790,7 +794,7 @@ function renderRs(){
     </div>
     <div class="stats">
       <div class="stat"><div class="label">Respuestas</div><div class="value">${total}</div><div class="sub">plantas participantes</div></div>
-      <div class="stat"><div class="label">Plantas distintas</div><div class="value">${plantas.size}</div><div class="sub">de la lista corporativa</div></div>
+      <div class="stat"><div class="label">Satisfacción promedio</div><div class="value" style="color:${satColor(rsSatAvg)}">${rsSatAvg!=null ? rsSatAvg+'%' : '—'}</div><div class="sub">según nivel de implementación</div></div>
       <div class="stat"><div class="label">Reunión activa (Sí + Parcial)</div><div class="value">${pct((estado.get("Sí")||0)+(estado.get("Parcialmente")||0), total)}%</div><div class="sub">del total de respuestas</div></div>
       <div class="stat"><div class="label">Última respuesta</div><div class="value" style="font-size:18px">${fechaUltima(data)}</div><div class="sub">hora local</div></div>
     </div>

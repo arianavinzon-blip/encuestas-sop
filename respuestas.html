@@ -661,6 +661,12 @@ function renderTdc(){
       <div class="stat"><div class="label">Última respuesta</div><div class="value" style="font-size:18px">${fechaUltima(data)}</div><div class="sub">hora local</div></div>
     </div>
 
+    <div>
+      <div class="section-title"><h2>% de Satisfacción por Compañía</h2></div>
+      <div class="hint" style="margin:2px 0 12px;">Calculado a partir de las matrices de nivel de implementación y de impacto en KPIs. Tocá una compañía para ver el detalle por persona.</div>
+      <div class="card">${satisfactionSection(data, r=>r.compania, r=>avgScore([...Object.values(r.tdc), ...Object.values(r.sop), ...Object.values(r.impacto||{})]))}</div>
+    </div>
+
     <div class="grid2">
       <div class="card">
         <div class="card-head"><div><h3>¿Se realiza la Torre de Control?</h3><div class="hint">Estado declarado por compañía</div></div></div>
@@ -717,12 +723,6 @@ function renderTdc(){
           <tbody id="tbody-tdc"></tbody>
         </table>
       </div>
-    </div>
-
-    <div>
-      <div class="section-title"><h2>% de Satisfacción por Compañía</h2></div>
-      <div class="hint" style="margin:2px 0 12px;">Calculado a partir de las matrices de nivel de implementación y de impacto en KPIs. Tocá una compañía para ver el detalle por persona.</div>
-      <div class="card">${satisfactionSection(data, r=>r.compania, r=>avgScore([...Object.values(r.tdc), ...Object.values(r.sop), ...Object.values(r.impacto||{})]))}</div>
     </div>
   `;
 
@@ -795,6 +795,12 @@ function renderRs(){
       <div class="stat"><div class="label">Última respuesta</div><div class="value" style="font-size:18px">${fechaUltima(data)}</div><div class="sub">hora local</div></div>
     </div>
 
+    <div>
+      <div class="section-title"><h2>% de Satisfacción por Planta</h2></div>
+      <div class="hint" style="margin:2px 0 12px;">Calculado a partir de la matriz de nivel de implementación. Tocá una planta para ver el detalle por persona.</div>
+      <div class="card">${satisfactionSection(data, r=>r.planta, r=>avgScore(Object.values(r.niveles)))}</div>
+    </div>
+
     <div class="grid2">
       <div class="card">
         <div class="card-head"><div><h3>¿Se realiza la reunión en la planta?</h3><div class="hint">Estado declarado por planta</div></div></div>
@@ -838,12 +844,6 @@ function renderRs(){
           <tbody id="tbody-rs"></tbody>
         </table>
       </div>
-    </div>
-
-    <div>
-      <div class="section-title"><h2>% de Satisfacción por Planta</h2></div>
-      <div class="hint" style="margin:2px 0 12px;">Calculado a partir de la matriz de nivel de implementación. Tocá una planta para ver el detalle por persona.</div>
-      <div class="card">${satisfactionSection(data, r=>r.planta, r=>avgScore(Object.values(r.niveles)))}</div>
     </div>
   `;
 
